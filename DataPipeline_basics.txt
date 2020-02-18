@@ -1,0 +1,10 @@
+Things to note on Data Pipeline execution
+
+Pipeline Runson Parameter. Either EC2 or EMR
+
+Pipeline security
+
+1. They run under IAM
+2. Provisioning creates: DatapPipilineDefaultRole,DataPipelineResourceRole
+3. Roles are described in AWS Management console
+
