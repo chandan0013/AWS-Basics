@@ -7,6 +7,7 @@ Contains source file for implementing "Large" Data on AWS
 2. Batch processing Impala implementation on HDFS
 
 %%% Upcoming Updates%%%%%%%%%%%%
+
 3. Redshift/DynamoDB
 4. Data Pipeline
 
