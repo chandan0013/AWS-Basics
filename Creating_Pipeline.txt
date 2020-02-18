@@ -1,0 +1,42 @@
+#### Instruction for creating Pipeline and operating Pipeline on AWS###############
+
+1. Add 2 data nodes and an activity node, then drag them down
+
+First Data Node
+===============
+Name: FashionMNISTDB
+Type: FashionMNISTDBDataNode
+Schedule: RunOnce
+TableName: Images
+
+Second Data Node
+================
+Name: FashionMNISTRedshift
+Type: FashionMNISTRedshiftDataNode
+Schedule: RunOnce
+TableName: Images
+Database: (create new)
+	Name: RSDBFashionMNIST
+	Type: RedshiftDatabase
+	Cluster Id: FashionMNIST
+
+ActivityNode
+============
+Name: CopyFashionMNIST
+Type: RedshiftCopyActivity
+Schedule: RunOnce
+Input: FashionMNISTDB
+Output: Redshift
+Insert Mode: TRUNCATE
+Add Field: RunsOn: (create one)
+	Name: EC2
+	Type: Ec2Resource
+	Schedule: RunOnce
+	Log Uri: s3://FashionMNISTlog
+	Terminate After: 1 Hour(s)
+
+
+2. Then Troubleshoot the created Pipeline
+Check for error logs, then cancel remaining steps and clone the error pipeline.
+Fix the error in the orginal pipeline
+ 
