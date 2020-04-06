@@ -10,5 +10,5 @@ Contains source file for implementing "Large" Data on AWS
 
    
    
-Exercise files from Andrew Brust videos.
+Exercise files from Andrew Brust tutorial videos.
 These helped me implement large data like FashionMNIST in AWS
